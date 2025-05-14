@@ -98,6 +98,66 @@ public class ArrayModule {
         }
         System.out.println("Total sub Arrays : "+total_subArrays);
     }
+    public static void printMaxMinSubArray(int[] arr){
+        int MAXimum=Integer.MIN_VALUE;
+        int MINimum=Integer.MAX_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            int start=i;
+            for (int j = i; j <arr.length ; j++) {
+                int end = j; //bound the range
+                int m=0;
+                for (int k = start; k<=end ; k++) { //in this loop we print the elements start to end
+                    m = m + arr[k];
+                }
+                System.out.print(m+"\t");
+                if(m>MAXimum){
+                    MAXimum=m;
+                }
+                if(m<MINimum){
+                    MINimum=m;
+                }
+            }
+            System.out.println();
+        }
+        System.out.println("Maximum sumed subArrays : "+MAXimum);
+        System.out.println("Minimum sumed subArrays : "+MINimum);
+    }
+    public static int[] prefixArray(int [] numbers){
+        int[] prefix = new int[numbers.length];
+        prefix[0]=numbers[0];
+        for(int i=1;i<prefix.length;i++){
+            prefix[i]=prefix[i-1]+numbers[i];
+        }
+        return prefix;
+    }
+    public static void prefixSubArraySum(int[] numbers){
+        int[] prefix = prefixArray(numbers);//make a prefix array of numbers[]
+        int current=0;
+        int maxsum=Integer.MIN_VALUE;
+        for(int i=0; i<numbers.length; i++){
+            int start = i;
+            for(int j=i+1;j< numbers.length; j++){
+                int end=j;
+                current=start==0? prefix[end]:prefix[end]-prefix[start-1];
+            }
+            if(maxsum<current){
+                maxsum=current;
+            }
+        }
+        System.out.println("Maximum sum of SubArray is "+maxsum);
+    }
+    public static void kadanes(int[] numbers){
+        int current_sum=0;
+        int max_sum=Integer.MIN_VALUE;
+        for(int i=0; i<numbers.length; i++){
+            current_sum=current_sum + numbers[i];
+            if(current_sum<0){
+                current_sum=0;
+            }
+            max_sum = Math.max(current_sum,max_sum);
+        }
+        System.out.println("Maximum sum of SubArray is "+max_sum);
+    }
     public static void main(String [] args){
         //pass array as argument
 //        int[] marks ={77,90,67,99};
@@ -147,7 +207,16 @@ public class ArrayModule {
 //        printPairs(numbers);
 
         //print SubArrays-->A continous part of array
-//        int [] numbers={2,4,6,8,10};
+//        int [] numbers={2,4,6,8,66};
 //        printSubArray(numbers);
+//        printMaxMinSubArray(numbers);
+
+        //prefixSubArraySum
+//        int[] numbers = {1,-2,6,-1,3};
+//        prefixSubArraySum(numbers);
+
+        //kadanes algo to find max subArray Sum
+        int[] numbers= {-2,-3,4,-1,-2,1,5,-3};
+        kadanes(numbers);
     }
 }
