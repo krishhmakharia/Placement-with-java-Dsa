@@ -158,6 +158,54 @@ public class ArrayModule {
         }
         System.out.println("Maximum sum of SubArray is "+max_sum);
     }
+    public static int rainWaterTrapped(int [] height){
+        // Calculate left most boundary
+        int[] left_max = new int[height.length];
+        left_max[0]=height[0];
+        for(int i=1; i< left_max.length;i++){
+            left_max[i]=Math.max(height[i],left_max[i-1]);
+        }
+
+        // calculate right most boundary
+        int[] right_max = new int[height.length];
+        right_max[right_max.length-1]=height[height.length-1];
+        for(int i=(right_max.length-2);i>=0;i--){
+            right_max[i]=Math.max(height[i],right_max[i+1]);
+        }
+
+        //water level =min (leftMostBoundary,rightMostBoundary)
+        //water trapped = (WaterLevel-height[i])*width
+        int[] water_trapped = new int[height.length];
+        for (int i = 0; i < height.length; i++) {
+            int water_level=Math.min(left_max[i],right_max[i]);
+            water_trapped[i]=(water_level-height[i]);
+        }
+        int total_water_trapped=0;
+        for (int i=0; i<water_trapped.length; i++){
+            System.out.print(water_trapped[i]+"\t");
+            total_water_trapped=total_water_trapped+water_trapped[i];
+        }
+        return total_water_trapped;
+
+    }
+    public static int stockProfit(int[] prices){
+        int buy = Integer.MAX_VALUE;
+        int maxProfit = Integer.MIN_VALUE;
+        for(int i=0; i<prices.length; i++){
+            int sell = prices[i];
+            if(buy<sell){
+                int profit = sell - buy; //today's profit
+                maxProfit = Math.max(maxProfit,profit);//all time profit
+            }else{
+                buy=sell;
+            }
+        }
+        if(maxProfit>0){
+            return maxProfit;
+        }
+
+        return 0;
+    }
     public static void main(String [] args){
         //pass array as argument
 //        int[] marks ={77,90,67,99};
@@ -216,7 +264,15 @@ public class ArrayModule {
 //        prefixSubArraySum(numbers);
 
         //kadanes algo to find max subArray Sum
-        int[] numbers= {-2,-3,4,-1,-2,1,5,-3};
-        kadanes(numbers);
+//        int[] numbers= {-2,-3,4,-1,-2,1,5,-3};
+//        kadanes(numbers);
+
+        //Trapping rainwater
+//        int[] height={4,2,0,6,3,2,5};
+//        System.out.println("\nTotal Rain Water Trapped:"+rainWaterTrapped(height));
+
+        //Buy and Sell Stocks for profit
+        int[] prices = {7,1,5,3,6,4};
+        System.out.println("Maximum profit earned : "+stockProfit(prices));
     }
 }
