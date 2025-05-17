@@ -206,6 +206,46 @@ public class ArrayModule {
 
         return 0;
     }
+    public static boolean distinct(int[] numbers){
+        for(int i=0; i<numbers.length; i++){
+            for(int j=i+1;j<numbers.length; j++){
+                if(numbers[i]==numbers[j]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public static void rotateAndCheck(int[] numbers){
+        int index = 3;
+        int[] temp = new int[index];
+//        int i=0;
+//        while(i<numbers.length){
+//            numbers[i]=numbers[index];
+//            i++;
+//            index++;
+//            if(index)
+//        }
+        for(int i=0; i<numbers.length ; i++){
+
+            if(i<index){
+                temp[i]=numbers[i];
+            }
+        }
+        for(int i=0; i<numbers.length ; i++){
+
+            if(index<numbers.length){
+                numbers[i]=numbers[index];
+                index++;
+            }
+        }
+        for(int i=0; i<numbers.length ; i++){
+            
+        }
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.printf(numbers[i]+"\t");
+        }
+    }
     public static void main(String [] args){
         //pass array as argument
 //        int[] marks ={77,90,67,99};
@@ -272,7 +312,20 @@ public class ArrayModule {
 //        System.out.println("\nTotal Rain Water Trapped:"+rainWaterTrapped(height));
 
         //Buy and Sell Stocks for profit
-        int[] prices = {7,1,5,3,6,4};
-        System.out.println("Maximum profit earned : "+stockProfit(prices));
+//        int[] prices = {7,1,5,3,6,4};
+//        System.out.println("Maximum profit earned : "+stockProfit(prices));
+
+        //check distinct
+//        int[] numbers = {1,1,1,3,3,4,3,2,4,2};
+//        if(!distinct(numbers)){
+//            System.out.println("All Numbers are unique in array");
+//        }else{
+//            System.out.println("There are no distinct unique values");
+//        }
+
+        //Rotate at given index and check Index value lies or not
+        int[] numbers = {0,1,2,3,4,5,6,7};
+        rotateAndCheck(numbers);
+
     }
 }

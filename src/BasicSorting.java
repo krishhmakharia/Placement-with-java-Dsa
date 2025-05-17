@@ -1,0 +1,26 @@
+public class BasicSorting {
+    public static void bubbleSort(int[] arr){//time Complexity is O(n2);
+        System.out.print("Before : ");
+        printArray(arr);
+        for(int turn=0; turn<arr.length-1; turn++){
+            for(int i=0; i<arr.length-1-turn; i++){
+                if(arr[i]>arr[i+1]){
+                    int temp = arr[i];
+                    arr[i] = arr[i+1];
+                    arr[i+1]=temp;
+                }
+            }
+        }
+        System.out.print("\nAfter : ");
+        printArray(arr);
+    }
+    public static void printArray(int[] arr){
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]+"\t");
+        }
+    }
+    public static void main(String [] args){
+        int [] arr ={1,2,55,76,90,100,7};
+        bubbleSort(arr);
+    }
+}
