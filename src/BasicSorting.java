@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Collections;
+
 public class BasicSorting {
     public static void bubbleSort(int[] arr){//time Complexity is O(n2);
         System.out.print("Before : ");
@@ -37,6 +40,11 @@ public class BasicSorting {
             System.out.print(arr[i]+"\t");
         }
     }
+    public static void printArray2(Integer[] arr){
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]+"\t");
+        }
+    }
     public static void insertionSort(int[] arr){
         System.out.print("Before : ");
         printArray(arr);
@@ -54,12 +62,57 @@ public class BasicSorting {
         System.out.print("\nAfter : ");
         printArray(arr);
     }
+    public static void countingSort(int [] arr){
+        System.out.print("Before : ");
+        printArray(arr);
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i]>max){
+                max=arr[i];
+            }
+        }
+        int[] freq = new int[max+1];
+        for (int i = 0; i <arr.length; i++) {
+            freq[arr[i]]++;
+        }
+        int j=0;
+        for (int i = 0; i < freq.length; i++) {
+            while(freq[i]>0){
+                arr[j]=i;
+                j++;
+                freq[i]--;
+            }
+        }
+        System.out.print("\nAfter : ");
+        printArray(arr);
+
+    }
     public static void main(String [] args){
-        int [] arr ={1,2,55,76,90,100,7};
+//        int [] arr ={1,2,55,76,90,100,7};
 //        bubbleSort(arr);
 //        selectionSort(arr);
-        insertionSort(arr);
+//        insertionSort(arr);
 
-        
+        //inbuilt sort
+//        int[] arr={100,12,55,89,3,5,8,7};
+//        Arrays.sort(arr);
+//        printArray(arr);
+//        Arrays.sort(arr,0,3);
+//        printArray(arr);//12	55	100	89	3	5	8	7
+
+        //descending order
+//        Integer [] arr = {100,12,55,89,3,5,8,7};
+//        Arrays.sort(arr, Collections.reverseOrder());
+//        printArray2(arr);//100	89	55	12	8	7	5	3
+//        Arrays.sort(arr,0,3,Collections.reverseOrder());
+//        printArray2(arr);
+
+        //Counting sort
+        int[] arr = {1,4,1,3,2,3,7};
+        countingSort(arr);
+
+
+
+
     }
 }
