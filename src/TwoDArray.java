@@ -78,13 +78,62 @@ public class TwoDArray {
             end_col--;
         }
     }
+    public static void diagonalSum(int[][] matrix) {
+        int sum = 0;
+        // there is big issue with this code that is high time complexity O(n^2)
+//        for (int i = 0; i < matrix.length; i++) {
+//            for (int j = 0; j < matrix[i].length; j++) {
+//                if (i == j) {//primary diagonal
+//                    sum += matrix[i][j];
+//                }
+//                if (i + j == matrix.length - 1) {
+//                    sum += matrix[i][j];
+//                }
+//            }
+//        }
+        //Approach 2
+        for (int i=0; i<matrix.length;i++){
+            sum+=matrix[i][i];
+            if(i!=matrix.length-1-i){
+                sum+=matrix[i][matrix.length-1-i];
+            }
+        }
+        System.out.println(" Diagonal Sum : "+sum);
+    }
+    public static boolean stairCaseSearch(int[][] matrix, int key){
+        int row = 0;
+        int col = matrix[0].length-1;
+        while(col>=0 && row < matrix.length){
+            if(matrix[row][col]==key){
+                System.out.println("Found at ("+row+","+col+")");
+                return true;
+            }else if(key<matrix[row][col]){
+                col--;
+            }else{
+                row++;
+            }
+        }
+        System.out.println("Key not found");
+        return false;
+    }
     public static void main(String [] args){
 //        int[][] matrix = inputMatrix(2,2);
 //        printMatrix(matrix);
-        int[][] matrix = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+//        int[][] matrix = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
 //        printMatrix(matrix);
-        spiralMatrix(matrix);
+//        spiralMatrix(matrix);
+//            diagonalSum(matrix);
 
+        //Searching in sorted Matrix Row wise + Col wise
+        int[][] matrix = {
+                {10,20,30,40},
+                {15,25,35,45},
+                {27,29,37,48},
+                {32,33,39,50}
+        };
+        int key=100;
+        stairCaseSearch(matrix,key);
+//        printMatrix(matrix);
 
 
     }
