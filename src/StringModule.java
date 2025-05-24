@@ -45,6 +45,30 @@ public class StringModule {
         }
         return str;
     }
+    public static String smallest(String[] words){
+        String small = words[0];
+        for(int i=1; i<words.length; i++){
+            if(words[i].compareToIgnoreCase(small)<0){
+                small = words[i];
+            }
+        }
+        return small;
+    }
+    public static String toUpperCase(String s){
+        StringBuilder sb =  new StringBuilder("");
+        char ch = s.charAt(0);
+        sb.append(Character.toUpperCase(ch));
+        for(int i=1;i<s.length();i++){
+            if(s.charAt(i)==' '){
+                sb.append(s.charAt(i));
+                i++;
+                sb.append(Character.toUpperCase(s.charAt(i)));
+            }else{
+                sb.append(s.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
     public static void main(String[] args){
 //        String full_name = "Krish Makharia";
 //        printLetters(full_name);
@@ -54,11 +78,26 @@ public class StringModule {
 //        else
 //            System.out.println("Not a palindrome");
 
-        String directions = "WNEENESENNN";
+//        String directions = "WNEENESENNN";
 //        System.out.println(getShortestPath(directions));
 //        System.out.println(toSubStr(directions,0,6));
 
         //lexicographical by  largest string
+//        String [] fruits = {"mango","banana","apple","pineapple"};
+//        System.out.println("Smallest : "+smallest(fruits));
+
+        // String Builder
+        /* Since string is immutable then changment at index level
+        makes high Time complexity to bypass this we have String builder
+         */
+//        StringBuilder sb = new StringBuilder("");
+//        for(char a ='a'; a<='z'; a++){
+//            sb.append(a);
+//        }
+//        System.out.print(sb);
+
+        String s = "hey i am krish";
+        System.out.println(toUpperCase(s));
 
 
     }
