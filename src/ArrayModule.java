@@ -290,14 +290,14 @@ public class ArrayModule {
 //        for(int i=0; i<arr.length; i++){
 //            System.out.print(arr[i]+"\t");
 //        }
-        //Pairs in array
+       // Pairs in array
 //        int [] numbers={2,4,6,8,10};
 //        printPairs(numbers);
 
         //print SubArrays-->A continous part of array
-//        int [] numbers={2,4,6,8,66};
-//        printSubArray(numbers);
-//        printMaxMinSubArray(numbers);
+        int [] numbers={2,4,6,8,66};
+        printSubArray(numbers);
+        printMaxMinSubArray(numbers);
 
         //prefixSubArraySum
 //        int[] numbers = {1,-2,6,-1,3};
@@ -324,8 +324,8 @@ public class ArrayModule {
 //        }
 
         //Rotate at given index and check Index value lies or not
-        int[] numbers = {0,1,2,3,4,5,6,7};
-        rotateAndCheck(numbers);
+//        int[] numbers = {0,1,2,3,4,5,6,7};
+//        rotateAndCheck(numbers);
 
     }
 }

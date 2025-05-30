@@ -69,6 +69,21 @@ public class StringModule {
         }
         return sb.toString();
     }
+    public static String compress(String str){
+        StringBuilder sb = new StringBuilder("");
+        for(int i=0; i<str.length(); i++){
+            Integer count=1;
+            while(i<str.length()-1 && str.charAt(i)==str.charAt(i+1)){
+                count ++;
+                i++;
+            }
+            sb.append(str.charAt(i));
+            if(count>1){
+                sb.append(count);
+            }
+        }
+        return sb.toString();
+    }
     public static void main(String[] args){
 //        String full_name = "Krish Makharia";
 //        printLetters(full_name);
@@ -96,8 +111,12 @@ public class StringModule {
 //        }
 //        System.out.print(sb);
 
-        String s = "hey i am krish";
-        System.out.println(toUpperCase(s));
+//        String s = "hey i am krish";
+//        System.out.println(toUpperCase(s));
+
+        //String Compression
+        String s = "aaabbcccd";
+        System.out.println("Original :"+s+"\n"+"Compressed :"+compress(s));
 
 
     }
