@@ -1,0 +1,23 @@
+Polymorphism
+ - Multiple forms, When we try to achieve similar things in multiple form called polymorphism
+Types
+ - Compile time (Static) Polymorphism --> Method Overloading - Multiple function with same name but different parameters.
+ - Run time (Dynamic) Polymorphism --> Method Overriding - Parent and child class both contains same function but with a different definition.
+-------------------------------------------------------------------------------------------
+Packages- collection similar types of classes / interfaces and sub packages.
+Types
+ - inbuilt packages - Scanner class is package of util
+ - user define packages
+-------------------------------------------------------------------------------------------
+Abstraction- Hiding unnecessary details, In abstraction we just give idea not implementation.
+Abstract class , Interfaces
+-----------------------------------------------------------------------------------------------
+Static- Use to share the same variable or method for a class
+this - use to refer current obj
+super- use to refer immediate  parent class object
+
+-----------------------------------------------------------------------------------------
+Note!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+- In java we can not create an private and protected class because they become unusable make no sense of existence for them. But in nested class Private and protected Access modifiers exists.
+- In java we can assign parent reference to child Object but vica vesa not possible
