@@ -169,6 +169,27 @@ public class Recursion {
         //better way
         return friendsPair(n-1)+(n-1)*friendsPair(n-2);
     }
+    public static void printBinStr(int n,String str,int lastVal){
+        //Base case
+        if(n==0){
+            System.out.println(str);
+            return;
+        }
+        //Kaam
+//        if(lastVal==0){
+//            //Here we can add both 0,1
+//            printBinStr(n-1,str+'0',0);
+//            printBinStr(n-1,str+'1',1);
+//        }else{
+//            printBinStr(n-1,str+'0',0);
+//        }
+
+        //better way
+        printBinStr(n-1,str+"0",0);
+        if(lastVal==0){
+            printBinStr(n-1,str+'1',1);
+        }
+    }
     public static void main(String [] args){
         int n=5;
 //        printNumDec(n);
@@ -200,7 +221,12 @@ public class Recursion {
 //        removeDuplicates(s,0,new StringBuilder(),new boolean[26]);
 
         //Friends Pairing
-        System.out.println(friendsPair(5));
+//        System.out.println(friendsPair(5));
 
+        //Print binary String of n length where constitutive of 1 not allowed
+        /* example
+        for n=3
+         000, 001,010,100,101 */
+        printBinStr(3,"",0);
     }
 }
