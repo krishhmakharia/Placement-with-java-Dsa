@@ -134,7 +134,41 @@ public class Recursion {
         return total_ways;
 
     }
+    public static void removeDuplicates(String str,int idx,StringBuilder newStr,boolean[] map){
+        if(idx==str.length()){
+            System.out.println(newStr);
+            return;
+        }
+        char currChar = str.charAt(idx);
+        if(map[currChar-'a'] == true){
+            //Duplicate
+            removeDuplicates(str,idx+1,newStr,map);
+        }else{
+            //Non duplicate
+            map[currChar-'a']=true;
+            removeDuplicates(str,idx+1,newStr.append(currChar),map);
+        }
+    }
+    public static int friendsPair(int n){
+        //base case
+        if(n==1 || n==2){
+            return n;
+        }
 
+        //Choices
+        //Single
+//        int fnm1 = friendsPair(n-1);
+//
+//        //Pair
+//        int fnm2= friendsPair(n-2);
+//        int total_pair = (n-1) * fnm2;
+//
+//        int total_combinations = fnm1+total_pair;
+//        return total_combinations;
+
+        //better way
+        return friendsPair(n-1)+(n-1)*friendsPair(n-2);
+    }
     public static void main(String [] args){
         int n=5;
 //        printNumDec(n);
@@ -154,6 +188,19 @@ public class Recursion {
 //        System.out.println(xPowPro2(2,3));
 
         //Tiling Problem - In this we have given a flore size (2*n) and we need to fill tiles of (2*1). Question is we need to find how many ways that we can arrange tiles in that flore.
-        System.out.printf("No of ways are : "+tilingProblem(4));
+//        System.out.printf("No of ways are : "+tilingProblem(4));
+//        String s = "apnnacollege";
+//        Boolean[] map = new Boolean[26];
+//        for (int i = 0; i < map.length; i++) {
+//            map[i]=false;
+//        }
+//        for (int i = 0; i < map.length; i++) {
+//            System.out.println(i+"--> "+map[i]);
+//        }
+//        removeDuplicates(s,0,new StringBuilder(),new boolean[26]);
+
+        //Friends Pairing
+        System.out.println(friendsPair(5));
+
     }
 }
