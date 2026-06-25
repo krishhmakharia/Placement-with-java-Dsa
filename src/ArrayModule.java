@@ -269,7 +269,7 @@ public class ArrayModule {
 //        int max = maximum(numbers);
 //        System.out.println("Maximum number is : "+max);
 
-        //Bineary Search
+//        Bineary Search
 //        int [] numbers = {1,2,4,8,16,32,64,128};
 //        int key = 16;
 //        int idx = binearySearch(numbers,key);
@@ -295,13 +295,13 @@ public class ArrayModule {
 //        printPairs(numbers);
 
         //print SubArrays-->A continous part of array
-        int [] numbers={2,4,6,8,66};
-        printSubArray(numbers);
-        printMaxMinSubArray(numbers);
+//        int [] numbers={2,4,6,8,66};
+//        printSubArray(numbers);
+//        printMaxMinSubArray(numbers);
 
         //prefixSubArraySum
-//        int[] numbers = {1,-2,6,-1,3};
-//        prefixSubArraySum(numbers);
+        int[] numbers = {1,-2,6,-1,3};
+        prefixSubArraySum(numbers);
 
         //kadanes algo to find max subArray Sum
 //        int[] numbers= {-2,-3,4,-1,-2,1,5,-3};

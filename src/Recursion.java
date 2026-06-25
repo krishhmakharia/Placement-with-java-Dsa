@@ -191,12 +191,12 @@ public class Recursion {
         }
     }
     public static void main(String [] args){
-        int n=5;
+        int n=6;
 //        printNumDec(n);
 //        printNumInc(n);
 //        System.out.println(fact(4));
 //        System.out.print("Sum of first "+n+" Natural numbers : " + sumOfNaturalNumber(n) );
-       // System.out.println("Fibonacci series sum of "+n+" is "+Fibonacci(n));// 0 1 1 2 3 5 8
+        System.out.println("Fibonacci series sum of "+n+" is "+Fibonacci(n));// 0 1 1 2 3 5 8
         // Check a given array is shorted or not?
 //        int [] arr ={1,2,3,4,5,77,5,6,1};
 //        int [] arr1 ={1,2,333,44,5,77};
@@ -226,7 +226,7 @@ public class Recursion {
         //Print binary String of n length where constitutive of 1 not allowed
         /* example
         for n=3
-         000, 001,010,100,101 */
-        printBinStr(3,"",0);
+//         000, 001,010,100,101 */
+      printBinStr(3,"",0);
     }
 }
